@@ -19,6 +19,6 @@ public class Manager_Score : MonoBehaviour
 
     public void UpdateScore(int score)
     {
-        storedScore = score;
+        storedScore += score;
     }
 }

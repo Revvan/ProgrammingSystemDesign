@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class Sword : GameElements, IWeapons
+public class Axe : GameElements, IWeapons
 {
+    [SerializeField] private WeaponType _weaponType = WeaponType.MELEE;
+    public WeaponType type => _weaponType;
+
     public int newDamage = 0;
-    public Sword(int value) : base(value)
+    public Axe(int value) : base(value)
     {
         newDamage = value;
     }

@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class Axe : GameElements, IWeapons
+public class Wand : GameElements, IWeapons
 {
+    [SerializeField] private WeaponType _weaponType = WeaponType.RANGE;
+    public WeaponType type => _weaponType;
+
     public int newDamage = 0;
-    public Axe(int value) : base(value)
+    public Wand(int value) : base(value)
     {
         newDamage = value;
     }

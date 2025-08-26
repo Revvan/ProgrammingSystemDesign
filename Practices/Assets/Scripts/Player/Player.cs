@@ -3,12 +3,19 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
+    private IWeapons weapon;
+    private IWeapons previousWeapon;
+
     private Rigidbody rb;
     private Transform t;
-    [SerializeField] private float speed = 0f;
 
-    [SerializeField] private IWeapons weapon;
-    private IWeapons previousWeapon;
+    [SerializeField] private float _speed = 0f;
+    public float speed
+    {
+        get { return _speed; }
+        set { _speed = value; }
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();

@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class Wand : GameElements, IWeapons
+public class Sword : GameElements, IWeapons
 {
+    [SerializeField] private WeaponType _weaponType = WeaponType.MELEE;
+    public WeaponType type => _weaponType;
+
     public int newDamage = 0;
-    public Wand(int value) : base(value)
+    public Sword(int value) : base(value)
     {
         newDamage = value;
     }
@@ -25,6 +28,6 @@ public class Wand : GameElements, IWeapons
 
     public void Attack()
     {
-        print("Estas atacando con " + this.name + " infligiste " + damage.ToString());
+        print("You're attacking with: " + this.name + " You deal: " + damage.ToString());
     }
 }

@@ -3,7 +3,6 @@ using UnityEngine;
 public abstract class GameElements : MonoBehaviour
 {
     protected int _damage;
-
     public int damage
     {
         get { return _damage; }
@@ -17,5 +16,4 @@ public abstract class GameElements : MonoBehaviour
     public abstract void Start();
     public abstract void Update();
     public abstract void FixedUpdate();
-    
 }
