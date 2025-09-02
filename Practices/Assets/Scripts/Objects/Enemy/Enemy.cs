@@ -17,12 +17,11 @@ public class Enemy : MonoBehaviour
     public Player playerRef => _playerRef;
 
 
-    protected EnemyStateMachine _enemyStateMachine;
+    protected StateMachine _enemyStateMachine;
 
     protected PatrollingState _patrollingState;
     protected ChasingState _chasingState;
     protected AttackState _attackState;
-
 
     protected virtual void OnEnable()
     {
@@ -30,7 +29,7 @@ public class Enemy : MonoBehaviour
     }
     protected virtual void Awake()
     { 
-        _enemyStateMachine = new EnemyStateMachine();
+        _enemyStateMachine = new StateMachine();
     }
     protected virtual void Start()
     {
@@ -50,7 +49,7 @@ public class Enemy : MonoBehaviour
         _playerRef = FindObjectOfType<Player>();
     }
 
-    public IMachineState GetPatrollingState() => _patrollingState;
-    public IMachineState GetChasingState() => _chasingState;
-    public IMachineState GetAttackState() => _attackState;
+    public IStateMachine GetPatrollingState() => _patrollingState;
+    public IStateMachine GetChasingState() => _chasingState;
+    public IStateMachine GetAttackState() => _attackState;
 }

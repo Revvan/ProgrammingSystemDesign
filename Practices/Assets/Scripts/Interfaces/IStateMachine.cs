@@ -1,4 +1,4 @@
-public interface IMachineState
+public interface IStateMachine
 {
     void Enter();
     void UpdateState();

@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class PatrollingState : IMachineState
+public class PatrollingState : IStateMachine
 {
     private Enemy _enemy;
-    private EnemyStateMachine _enemyStateMachine;
+    private StateMachine _enemyStateMachine;
 
-    public PatrollingState(Enemy enemy, EnemyStateMachine enemyStateMachine)
+    public PatrollingState(Enemy enemy, StateMachine enemyStateMachine)
     {
         _enemy = enemy;
         _enemyStateMachine = enemyStateMachine;

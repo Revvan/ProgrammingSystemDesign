@@ -1,15 +1,15 @@
-public class EnemyStateMachine
+public class StateMachine
 {
-    private IMachineState _currentState;
-    public IMachineState currentState => _currentState;
+    private IStateMachine _currentState;
+    public IStateMachine currentState => _currentState;
 
-    public void Initialize(IMachineState state)
+    public void Initialize(IStateMachine state)
     {
         _currentState = state;
         state.Enter();
     }
 
-    public void TransitionTo(IMachineState state)
+    public void TransitionTo(IStateMachine state)
     {
         _currentState.Exit();
         _currentState = state;

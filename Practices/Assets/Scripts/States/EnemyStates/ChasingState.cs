@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class ChasingState : IMachineState
+public class ChasingState : IStateMachine
 {
     private Enemy _enemy;
-    private EnemyStateMachine _enemyStateMachine;
+    private StateMachine _enemyStateMachine;
 
-    public ChasingState(Enemy enemy, EnemyStateMachine enemyStateMachine)
+    public ChasingState(Enemy enemy, StateMachine enemyStateMachine)
     {
         _enemy = enemy;
         _enemyStateMachine = enemyStateMachine;
