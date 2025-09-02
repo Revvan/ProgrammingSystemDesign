@@ -112,6 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _idName: Alien
-  _maxHealth: 0
-  _damage: 0
+  _maxHealth: 100
+  _damage: 10
   _playerRef: {fileID: 0}

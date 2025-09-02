@@ -111,6 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _idName: Golem
-  _maxHealth: 0
-  _damage: 0
+  _maxHealth: 150
+  _damage: 15
   _playerRef: {fileID: 0}

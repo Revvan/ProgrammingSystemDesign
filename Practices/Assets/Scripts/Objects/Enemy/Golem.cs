@@ -4,22 +4,32 @@ using UnityEngine;
 
 public class Golem : Enemy
 {
-    public Golem(string nameValue, float healthValue, float damageValue, Player player) : base(nameValue, healthValue, damageValue, player)
+    protected override void OnEnable()
     {
+        base.OnEnable();
+    }
+    protected override void Awake()
+    {
+        base.Awake();
+        _patrollingState = new PatrollingState(this, _enemyStateMachine);
+        _chasingState = new ChasingState(this, _enemyStateMachine);
+        _attackState = new AttackState(this, _enemyStateMachine);
+
+        _enemyStateMachine.Initialize(_patrollingState);
     }
 
-    public override void FixedUpdate()
+    protected override void Start()
     {
-        
+        base.Start();
     }
 
-    public override void Start()
+    protected override void Update()
     {
-        
+        base.Update();
     }
 
-    public override void Update()
+    protected override void FixedUpdate()
     {
-        
+        base.FixedUpdate();
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     [SerializeField] protected string _idName;
     public string idName => _idName;
@@ -14,28 +14,43 @@ public abstract class Enemy : MonoBehaviour
     public float damage => _damage;
 
     [SerializeField] protected Player _playerRef;
-    private float healthValue;
-    private float damageValue;
-    private Player player;
-
     public Player playerRef => _playerRef;
 
-    public Enemy(string nameValue, float healthValue, float damageValue, Player player)
+
+    protected EnemyStateMachine _enemyStateMachine;
+
+    protected PatrollingState _patrollingState;
+    protected ChasingState _chasingState;
+    protected AttackState _attackState;
+
+
+    protected virtual void OnEnable()
     {
-        _idName = nameValue;
-        _maxHealth = healthValue;
-        _damage = damageValue;
-        _playerRef = player;
+        Initialize();
+    }
+    protected virtual void Awake()
+    { 
+        _enemyStateMachine = new EnemyStateMachine();
+    }
+    protected virtual void Start()
+    {
+        
+    }
+    protected virtual void Update()
+    {
+        _enemyStateMachine.UpdateState();
+    }
+    protected virtual void FixedUpdate()
+    {
+
     }
 
-    protected Enemy(float healthValue, float damageValue, Player player)
+    protected virtual void Initialize()
     {
-        this.healthValue = healthValue;
-        this.damageValue = damageValue;
-        this.player = player;
+        _playerRef = FindObjectOfType<Player>();
     }
 
-    public abstract void Start();
-    public abstract void Update();
-    public abstract void FixedUpdate();
+    public IMachineState GetPatrollingState() => _patrollingState;
+    public IMachineState GetChasingState() => _chasingState;
+    public IMachineState GetAttackState() => _attackState;
 }
