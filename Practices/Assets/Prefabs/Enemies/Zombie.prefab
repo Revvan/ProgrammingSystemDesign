@@ -112,6 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _idName: Zombie
-  _maxHealth: 0
-  _damage: 0
+  _maxHealth: 50
+  _damage: 5
   _playerRef: {fileID: 0}

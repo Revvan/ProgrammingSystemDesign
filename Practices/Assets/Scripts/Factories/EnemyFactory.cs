@@ -51,18 +51,18 @@ public class EnemyFactory : MonoBehaviour
         {
             case 0:
                 idName = enemies[0].idName;
-                Debug.Log($"Enemy picked: {idName}");
+                //Debug.Log($"Enemy picked: {idName}");
                 break;
             case 1:
                 idName = enemies[1].idName;
-                Debug.Log($"Enemy picked: {idName}");
+                //Debug.Log($"Enemy picked: {idName}");
                 break;
             case 2:
                 idName = enemies[2].idName;
-                Debug.Log($"Enemy picked: {idName}");
+                //Debug.Log($"Enemy picked: {idName}");
                 break;
             default:
-                Debug.Log("Given value is not valid");
+                //Debug.Log("Given value is not valid");
                 break;
         }
 
@@ -74,7 +74,7 @@ public class EnemyFactory : MonoBehaviour
         if (!idEnemy.TryGetValue(id, out Enemy enemy))
             return null;
 
-        Debug.Log($"Enemy instantiated {enemy.name}");
+        //Debug.Log($"Enemy instantiated {enemy.name}");
         return Instantiate(enemy, _container);
     }
 }
