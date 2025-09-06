@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     private Transform t;
 
     [SerializeField] private float _speed = 0f;
+
+    [SerializeField] private GenericObjectPool _genericPool;
     public float speed
     {
         get { return _speed; }
@@ -52,8 +54,12 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            Fireball fireballInstance = _genericPool.Create();
+            _genericPool.OnGetObject(fireballInstance);
             if (weapon != null)
+            {
                 weapon.Attack();
+            }
         }
     }
 
